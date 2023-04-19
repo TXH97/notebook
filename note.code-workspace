@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Home",
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.rulers": [80],
+		"editor.fontSize": 14,
+		"editor.fontFamily": "Ubuntu Mono derivative Powerline",
+		"esbonio.sphinx.confDir": "${workspaceFolder:Home}/source/conf.py",
+		"esbonio.sphinx.buildDir": "${workspaceFolder:Home}/build"
+	}
+}
