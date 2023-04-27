@@ -1,6 +1,9 @@
+================================================================================
+日志记录
+================================================================================
 
 sifive官方SDK编译过程
-=====================
+================================================================================
 
 #. 下载官方 SDK 包；官方的 board 下会给出推荐的工具下载入口。
 #. 在 win10 的 linux 子系统中搭建编译环境
@@ -23,10 +26,13 @@ sifive官方SDK编译过程
 
 #. 添加环境路径：
    
-   * ``export FREEDOM_E_SDK_PIP_CACHE_PATH=/mnt/c/Users/TXH15/Desktop/FE310/freedom-e-sdk/pip-cache/``
-   * ``export FREEDOM_E_SDK_VENV_PATH=/mnt/c/Users/TXH15/Desktop/FE310/freedom-e-sdk/venv/``
+   * ``export FREEDOM_E_SDK_PIP_CACHE_PATH=
+     /mnt/c/Users/TXH15/Desktop/FE310/freedom-e-sdk/pip-cache/``
+   * ``export FREEDOM_E_SDK_VENV_PATH=
+     /mnt/c/Users/TXH15/Desktop/FE310/freedom-e-sdk/venv/``
   
-#. 编译工程： ``make PROGRAM=sifive-welcome TARGET=qemu-sifive-e31 CONFIGURATION=debug software``
+#. 编译工程： 
+   ``make PROGRAM=sifive-welcome TARGET=qemu-sifive-e31 CONFIGURATION=debug software``
    
    * ``PROGRAM`` 支持的历程在 ``./software`` 目录下
    * ``TARGET`` 支持的目标在 ``./bsp`` 目录下
@@ -36,12 +42,14 @@ sifive官方SDK编译过程
       ``sudo vim /usr/lib/python3.10/collections/__init__.py``
   
 #. 生成的目标文件在： ``./software/sifive-welcome/debug`` 目录下
-#. 启动 qemu: ``qemu-system-riscv32.exe -nographic -M sifive_e -cpu sifive-e31 -bios none -gdb tcp::1234 -S``
+#. 启动 qemu: ``qemu-system-riscv32.exe -nographic -M sifive_e -cpu sifive-e31
+   -bios none -gdb tcp::1234 -S``
 #. 启动 gdb: ``riscv64-unknown-elf-gdb example-freertos-minimal.elf``
 #. 在 gdb 中使用 ``target remote localhost:1234`` 连接目标板，并使用 ``load`` 下载程序
    
    .. note:: Linux 子系统中编译的程序路径不一样，调试时会出现找不到文件的提示；可使用 
-      ``set substitute-path /mnt/c/Users/TXH15/Desktop/FE310/freedom-e-sdk C:/Users/TXH15/Desktop/FE310/freedom-e-sdk``
+      ``set substitute-path /mnt/c/Users/TXH15/Desktop/FE310/freedom-e-sdk 
+      C:/Users/TXH15/Desktop/FE310/freedom-e-sdk``
       修改文件路径的指向。
 
 .. note:: 如果需要编译 RTOS 的版本，只需要使用下面这种方法，选择带 RTOS 的编译即可：
@@ -54,7 +62,7 @@ sifive官方SDK编译过程
 
 
 Windows10 搭建 Docker
-=====================
+================================================================================
 
 #. 在 docker 官网下载 windows10 桌面工具，并安装
 #. 在微软商店中下载安装 ubuntu 发现版，并点击图标启动，启动时会让填账户与密码。
@@ -71,10 +79,10 @@ Windows10 搭建 Docker
    :widths: 30, 100
    :align: center
 
-   "docker images": "查看下载的镜像"
-   "docker ps": "查看运行的容器"
-   "docker stop 名称/id": "停止运行容器"
-   "docker rm 名称/id": "删除容器"
+   "docker images", "查看下载的镜像"
+   "docker ps", "查看运行的容器"
+   "docker stop 名称/id", "停止运行容器"
+   "docker rm 名称/id", "删除容器"
 
 .. note::
    * 容器中无法直接访问本地的文件，可在启动容器时添加如下参数：
@@ -82,7 +90,7 @@ Windows10 搭建 Docker
 
 
 Windows 与 Linux 、 Mac 跨平台文件的问题
-========================================
+================================================================================
 
 这三个系统的换行符是不同的，当文件需要跨平台编辑和使用时需要注意换行符的问题。
 
@@ -97,6 +105,39 @@ Windows 与 Linux 、 Mac 跨平台文件的问题
 
 
 QEMU 源码编译记录
-=================
+================================================================================
 
+使用 docker 搭建的基于 Fedora 系统的环境；
+
+具体操作流程参考qemu官网::
+   https://wiki.qemu.org/Hosts/W32
+
+在环境配置中会遇到一些工具链的问题，需要手动安装，还有一些库页需要手动安装，
+官网可能没有提供安装方法。
+
+未完待续...
+
+
+
+VIRTIO 设备
+================================================================================
+
+**记录在 qemu-riscv32 上的 virt 平台上模拟 virtio 设备的记录。**
+
+virtio 设备是按一定的大小顺序，从 virt 平台中的 virtio 基地址开始排列。
+
+
+
+VSCODE 调试
+================================================================================
+
+WATCH 窗口技巧
+++++++++++++++
+
+================== =============================================================
+需求               解决方法
+================== =============================================================
+打印数组           在地址前添加 ``*(uint32_t(*)[16])``
+显示十六进制       在变量后添加 ``,x``
+================== =============================================================
 
