@@ -12,7 +12,7 @@ ARMv6-M 内核手册与笔记
 专用程序状态寄存器： `xPSR <https://developer.arm.com/documentation/ddi0419/c/System-Level-Architecture/System-Level-Programmers--Model/Registers/The-special-purpose-program-status-registers--xPSR?lang=en>`_
 
 
-异常
+V6M 异常
 ================================================================================
 
 官方参考文档： `异常模型 <https://developer.arm.com/documentation/ddi0419/c/System-Level-Architecture/System-Level-Programmers--Model/ARMv6-M-exception-model?lang=en>`_

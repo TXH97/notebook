@@ -3,8 +3,8 @@
 ================================================================================
 
 
-VIRTIO 设备
-+++++++++++
+VIRTIO 设备文档
++++++++++++++++
 
 #. ::download:`VIRTIO-Version1.0 <virtio-v1.0.pdf>`
 
@@ -13,8 +13,8 @@ VIRTIO 设备
 #. ::download:`VIRTIO-Version1.2 <virtio-v1.2.pdf>`
 
 
-UART 设备
-+++++++++
+UART 设备文档
++++++++++++++
 
 #. ::download:`UART-16550T <UART16550Transceiver-Documentation.pdf>`
 

@@ -7,6 +7,30 @@ MMU 内存管理单元
 `ARMv7A 的 MMU 翻译 <https://blog.csdn.net/BadBoyHolly/article/details/121350978>`_
 
 
+测试
+================================================================================
+
+.. tabs::
+
+   .. tab:: GitHub
+
+      这是表1
+
+   .. tab:: Bitbucket
+
+      这是表2
+
+   .. tab:: GitLab
+
+      这是表3
 
 
+
+.. function:: aw_time
+
+    获取当前时间
+
+    :param[out] p_time: 若不是NULL
+
+    :return: 当前时间
 
